@@ -29,8 +29,9 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
     ]);
     return MaterialApp.router(
-        routeInformationParser: appRouter.defaultRouteParser(),
-        routerDelegate: appRouter.delegate());
+      routeInformationParser: appRouter.defaultRouteParser(),
+      routerDelegate: appRouter.delegate(),
+    );
   }
 }
 
