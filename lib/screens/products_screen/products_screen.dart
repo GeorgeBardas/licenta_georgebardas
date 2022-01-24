@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:licenta_georgebardas/models/category.dart';
 import 'package:licenta_georgebardas/screens/products_screen/products_cubit.dart';
 
 class ProductsScreen extends StatelessWidget {
@@ -13,13 +13,42 @@ class ProductsScreen extends StatelessWidget {
       child: BlocBuilder<ProductsCubit, ProductsState>(
         builder: (context, state) {
           return state.isLoading
-              ? CircularProgressIndicator()
+              ? Center(child: CircularProgressIndicator())
               : ListView.builder(
                   itemCount: state.categories?.length,
                   itemBuilder: (context, index) {
-                    return Text(state.categories?[index].title ?? "");
+                    return CategoryItemWidget(
+                        category: state.categories?[index]);
                   });
         },
+      ),
+    );
+  }
+}
+
+class CategoryItemWidget extends StatelessWidget {
+  const CategoryItemWidget({required this.category, Key? key})
+      : super(key: key);
+
+  final Category? category;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Row(
+          children: [
+            Icon(Icons.category),
+            SizedBox(
+              width: 15,
+            ),
+            Text(
+              category?.title ?? "",
+              style: TextStyle(fontSize: 18),
+            ),
+          ],
+        ),
       ),
     );
   }

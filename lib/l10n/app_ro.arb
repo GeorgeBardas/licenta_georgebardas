@@ -1,0 +1,22 @@
+{
+  "home_screen": "Acasa",
+  "products_screen": "Produse",
+  "cart": "Cos",
+  "account_screen": "Cont",
+
+  "login": "Autentificare",
+  "register": "Inregistrare",
+
+  "email": "Email",
+  "password": "Parola",
+  "email_error": "Format email invalid",
+  "wrong_credentials": "Email sau parola gresita",
+
+  "first_name": "Prenume",
+  "last_name": "Nume",
+  "confirm_password": "Confirmare parola",
+  "password_error_short": "Parola trebuie sa contina minim 6 caractere",
+  "confirm_password_error": "Parolele trebuie sa fie identice",
+  "email_used_error": "Email-ul introdus este deja folosit",
+  "name_error": "Se pot folosi doar litere"
+}

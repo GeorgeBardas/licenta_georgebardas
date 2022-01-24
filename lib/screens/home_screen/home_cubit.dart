@@ -9,4 +9,5 @@ class HomeCubit extends Cubit<int> {
   /// for navigation button on single page
   void getHome() => emit(0);
   void getProducts() => emit(1);
+  void getCart() => emit(2);
 }
