@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:licenta_georgebardas/utils/colors.dart';
 
-class CartScreen extends StatelessWidget {
-  const CartScreen({Key? key}) : super(key: key);
+class FavoritesScreen extends StatelessWidget {
+  const FavoritesScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class CartScreen extends StatelessWidget {
         children: [
           Center(
             child: Text(
-              AppLocalizations.of(context)?.cart ?? "",
+              AppLocalizations.of(context)?.favorites ?? "",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,

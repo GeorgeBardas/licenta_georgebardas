@@ -20,12 +20,14 @@ class _$LoginStateTearOff {
 
   _LoginState call(
       {bool isLoading = false,
+      bool obscurePassword = true,
       bool isFormValid = false,
       bool wrongCredentials = false,
       String email = "",
       String password = ""}) {
     return _LoginState(
       isLoading: isLoading,
+      obscurePassword: obscurePassword,
       isFormValid: isFormValid,
       wrongCredentials: wrongCredentials,
       email: email,
@@ -40,6 +42,7 @@ const $LoginState = _$LoginStateTearOff();
 /// @nodoc
 mixin _$LoginState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get obscurePassword => throw _privateConstructorUsedError;
   bool get isFormValid => throw _privateConstructorUsedError;
   bool get wrongCredentials => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
@@ -57,6 +60,7 @@ abstract class $LoginStateCopyWith<$Res> {
       _$LoginStateCopyWithImpl<$Res>;
   $Res call(
       {bool isLoading,
+      bool obscurePassword,
       bool isFormValid,
       bool wrongCredentials,
       String email,
@@ -74,6 +78,7 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? obscurePassword = freezed,
     Object? isFormValid = freezed,
     Object? wrongCredentials = freezed,
     Object? email = freezed,
@@ -83,6 +88,10 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      obscurePassword: obscurePassword == freezed
+          ? _value.obscurePassword
+          : obscurePassword // ignore: cast_nullable_to_non_nullable
               as bool,
       isFormValid: isFormValid == freezed
           ? _value.isFormValid
@@ -112,6 +121,7 @@ abstract class _$LoginStateCopyWith<$Res> implements $LoginStateCopyWith<$Res> {
   @override
   $Res call(
       {bool isLoading,
+      bool obscurePassword,
       bool isFormValid,
       bool wrongCredentials,
       String email,
@@ -131,6 +141,7 @@ class __$LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? obscurePassword = freezed,
     Object? isFormValid = freezed,
     Object? wrongCredentials = freezed,
     Object? email = freezed,
@@ -140,6 +151,10 @@ class __$LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      obscurePassword: obscurePassword == freezed
+          ? _value.obscurePassword
+          : obscurePassword // ignore: cast_nullable_to_non_nullable
               as bool,
       isFormValid: isFormValid == freezed
           ? _value.isFormValid
@@ -166,6 +181,7 @@ class __$LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
 class _$_LoginState implements _LoginState {
   const _$_LoginState(
       {this.isLoading = false,
+      this.obscurePassword = true,
       this.isFormValid = false,
       this.wrongCredentials = false,
       this.email = "",
@@ -174,6 +190,9 @@ class _$_LoginState implements _LoginState {
   @JsonKey()
   @override
   final bool isLoading;
+  @JsonKey()
+  @override
+  final bool obscurePassword;
   @JsonKey()
   @override
   final bool isFormValid;
@@ -189,7 +208,7 @@ class _$_LoginState implements _LoginState {
 
   @override
   String toString() {
-    return 'LoginState(isLoading: $isLoading, isFormValid: $isFormValid, wrongCredentials: $wrongCredentials, email: $email, password: $password)';
+    return 'LoginState(isLoading: $isLoading, obscurePassword: $obscurePassword, isFormValid: $isFormValid, wrongCredentials: $wrongCredentials, email: $email, password: $password)';
   }
 
   @override
@@ -198,6 +217,8 @@ class _$_LoginState implements _LoginState {
         (other.runtimeType == runtimeType &&
             other is _LoginState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.obscurePassword, obscurePassword) &&
             const DeepCollectionEquality()
                 .equals(other.isFormValid, isFormValid) &&
             const DeepCollectionEquality()
@@ -210,6 +231,7 @@ class _$_LoginState implements _LoginState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(obscurePassword),
       const DeepCollectionEquality().hash(isFormValid),
       const DeepCollectionEquality().hash(wrongCredentials),
       const DeepCollectionEquality().hash(email),
@@ -224,6 +246,7 @@ class _$_LoginState implements _LoginState {
 abstract class _LoginState implements LoginState {
   const factory _LoginState(
       {bool isLoading,
+      bool obscurePassword,
       bool isFormValid,
       bool wrongCredentials,
       String email,
@@ -231,6 +254,8 @@ abstract class _LoginState implements LoginState {
 
   @override
   bool get isLoading;
+  @override
+  bool get obscurePassword;
   @override
   bool get isFormValid;
   @override

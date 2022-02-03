@@ -40,6 +40,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   freezed_annotation: ^1.1.0
   localization: ^1.1.1
+  flutter_svg: ^1.0.3
 
 dev_dependencies:
   build_runner: ^2.1.7
@@ -61,9 +62,16 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/icon_home.svg
+    - assets/images/icon_explore.svg
+    - assets/images/icon_cart.svg
+    - assets/images/icon_favorites.svg
+    - assets/images/icon_account.svg
+    - assets/images/icon_logout.svg
+    - assets/images/icon_orders.svg
+    - assets/images/icon_account_details.svg
+    - assets/images/icon_toggle_obscure_password.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

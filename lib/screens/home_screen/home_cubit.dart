@@ -10,4 +10,5 @@ class HomeCubit extends Cubit<int> {
   void getHome() => emit(0);
   void getProducts() => emit(1);
   void getCart() => emit(2);
+  void getFavorites() => emit(3);
 }

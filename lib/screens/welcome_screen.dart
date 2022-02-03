@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:licenta_georgebardas/main.dart';
 import 'package:licenta_georgebardas/router.gr.dart';
+import 'package:licenta_georgebardas/widgets/primary_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -22,37 +23,15 @@ class WelcomeScreen extends StatelessWidget {
                 Text("Welcome"),
                 Column(
                   children: [
-                    TextButton(
-                      onPressed: () {
-                        appRouter.push(LoginScreenRoute());
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(15))),
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child:
-                              Text(AppLocalizations.of(context)?.login ?? ""),
-                        ),
-                      ),
+                    PrimaryButton(
+                      text: AppLocalizations.of(context)?.login ?? "",
+                      onPressed: () => appRouter.push(const LoginScreenRoute()),
                     ),
-                    TextButton(
-                      onPressed: () {
-                        appRouter.push(RegisterScreenRoute());
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(15))),
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Text(
-                              AppLocalizations.of(context)?.register ?? ""),
-                        ),
-                      ),
+                    SizedBox(height: 10),
+                    PrimaryButton(
+                      text: AppLocalizations.of(context)?.register ?? "",
+                      onPressed: () =>
+                          appRouter.push(const RegisterScreenRoute()),
                     ),
                   ],
                 )

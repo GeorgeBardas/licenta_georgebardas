@@ -22,6 +22,8 @@ class _$RegisterStateTearOff {
       {bool isLoading = false,
       bool isFormValid = false,
       bool emailAlreadyUsed = false,
+      bool obscurePassword = true,
+      bool obscureConfirmPassword = true,
       String firstName = "",
       String lastName = "",
       String email = "",
@@ -31,6 +33,8 @@ class _$RegisterStateTearOff {
       isLoading: isLoading,
       isFormValid: isFormValid,
       emailAlreadyUsed: emailAlreadyUsed,
+      obscurePassword: obscurePassword,
+      obscureConfirmPassword: obscureConfirmPassword,
       firstName: firstName,
       lastName: lastName,
       email: email,
@@ -48,6 +52,8 @@ mixin _$RegisterState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isFormValid => throw _privateConstructorUsedError;
   bool get emailAlreadyUsed => throw _privateConstructorUsedError;
+  bool get obscurePassword => throw _privateConstructorUsedError;
+  bool get obscureConfirmPassword => throw _privateConstructorUsedError;
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
@@ -68,6 +74,8 @@ abstract class $RegisterStateCopyWith<$Res> {
       {bool isLoading,
       bool isFormValid,
       bool emailAlreadyUsed,
+      bool obscurePassword,
+      bool obscureConfirmPassword,
       String firstName,
       String lastName,
       String email,
@@ -89,6 +97,8 @@ class _$RegisterStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? isFormValid = freezed,
     Object? emailAlreadyUsed = freezed,
+    Object? obscurePassword = freezed,
+    Object? obscureConfirmPassword = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? email = freezed,
@@ -107,6 +117,14 @@ class _$RegisterStateCopyWithImpl<$Res>
       emailAlreadyUsed: emailAlreadyUsed == freezed
           ? _value.emailAlreadyUsed
           : emailAlreadyUsed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      obscurePassword: obscurePassword == freezed
+          ? _value.obscurePassword
+          : obscurePassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+      obscureConfirmPassword: obscureConfirmPassword == freezed
+          ? _value.obscureConfirmPassword
+          : obscureConfirmPassword // ignore: cast_nullable_to_non_nullable
               as bool,
       firstName: firstName == freezed
           ? _value.firstName
@@ -143,6 +161,8 @@ abstract class _$RegisterStateCopyWith<$Res>
       {bool isLoading,
       bool isFormValid,
       bool emailAlreadyUsed,
+      bool obscurePassword,
+      bool obscureConfirmPassword,
       String firstName,
       String lastName,
       String email,
@@ -166,6 +186,8 @@ class __$RegisterStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? isFormValid = freezed,
     Object? emailAlreadyUsed = freezed,
+    Object? obscurePassword = freezed,
+    Object? obscureConfirmPassword = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? email = freezed,
@@ -184,6 +206,14 @@ class __$RegisterStateCopyWithImpl<$Res>
       emailAlreadyUsed: emailAlreadyUsed == freezed
           ? _value.emailAlreadyUsed
           : emailAlreadyUsed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      obscurePassword: obscurePassword == freezed
+          ? _value.obscurePassword
+          : obscurePassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+      obscureConfirmPassword: obscureConfirmPassword == freezed
+          ? _value.obscureConfirmPassword
+          : obscureConfirmPassword // ignore: cast_nullable_to_non_nullable
               as bool,
       firstName: firstName == freezed
           ? _value.firstName
@@ -216,6 +246,8 @@ class _$_RegisterState implements _RegisterState {
       {this.isLoading = false,
       this.isFormValid = false,
       this.emailAlreadyUsed = false,
+      this.obscurePassword = true,
+      this.obscureConfirmPassword = true,
       this.firstName = "",
       this.lastName = "",
       this.email = "",
@@ -231,6 +263,12 @@ class _$_RegisterState implements _RegisterState {
   @JsonKey()
   @override
   final bool emailAlreadyUsed;
+  @JsonKey()
+  @override
+  final bool obscurePassword;
+  @JsonKey()
+  @override
+  final bool obscureConfirmPassword;
   @JsonKey()
   @override
   final String firstName;
@@ -249,7 +287,7 @@ class _$_RegisterState implements _RegisterState {
 
   @override
   String toString() {
-    return 'RegisterState(isLoading: $isLoading, isFormValid: $isFormValid, emailAlreadyUsed: $emailAlreadyUsed, firstName: $firstName, lastName: $lastName, email: $email, password: $password, confirmPassword: $confirmPassword)';
+    return 'RegisterState(isLoading: $isLoading, isFormValid: $isFormValid, emailAlreadyUsed: $emailAlreadyUsed, obscurePassword: $obscurePassword, obscureConfirmPassword: $obscureConfirmPassword, firstName: $firstName, lastName: $lastName, email: $email, password: $password, confirmPassword: $confirmPassword)';
   }
 
   @override
@@ -262,6 +300,10 @@ class _$_RegisterState implements _RegisterState {
                 .equals(other.isFormValid, isFormValid) &&
             const DeepCollectionEquality()
                 .equals(other.emailAlreadyUsed, emailAlreadyUsed) &&
+            const DeepCollectionEquality()
+                .equals(other.obscurePassword, obscurePassword) &&
+            const DeepCollectionEquality()
+                .equals(other.obscureConfirmPassword, obscureConfirmPassword) &&
             const DeepCollectionEquality().equals(other.firstName, firstName) &&
             const DeepCollectionEquality().equals(other.lastName, lastName) &&
             const DeepCollectionEquality().equals(other.email, email) &&
@@ -276,6 +318,8 @@ class _$_RegisterState implements _RegisterState {
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(isFormValid),
       const DeepCollectionEquality().hash(emailAlreadyUsed),
+      const DeepCollectionEquality().hash(obscurePassword),
+      const DeepCollectionEquality().hash(obscureConfirmPassword),
       const DeepCollectionEquality().hash(firstName),
       const DeepCollectionEquality().hash(lastName),
       const DeepCollectionEquality().hash(email),
@@ -293,6 +337,8 @@ abstract class _RegisterState implements RegisterState {
       {bool isLoading,
       bool isFormValid,
       bool emailAlreadyUsed,
+      bool obscurePassword,
+      bool obscureConfirmPassword,
       String firstName,
       String lastName,
       String email,
@@ -305,6 +351,10 @@ abstract class _RegisterState implements RegisterState {
   bool get isFormValid;
   @override
   bool get emailAlreadyUsed;
+  @override
+  bool get obscurePassword;
+  @override
+  bool get obscureConfirmPassword;
   @override
   String get firstName;
   @override

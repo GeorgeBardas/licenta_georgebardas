@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart' hide User;
-import 'package:licenta_georgebardas/models/user.dart';
+import 'package:licenta_georgebardas/models/user_model.dart';
 import 'package:licenta_georgebardas/repositories/user_repository.dart';
 
 class AuthRepository {
@@ -32,11 +32,14 @@ class AuthRepository {
     try {
       result = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
-      UserRepository().createUser(User(
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-      ));
+      UserRepository().createUser(
+        UserModel(
+          id: result.user!.uid,
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+        ),
+      );
     } catch (error) {
       if (error is FirebaseAuthException) {
         switch (error.code) {

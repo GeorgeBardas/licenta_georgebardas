@@ -12,6 +12,12 @@ part 'login_state.dart';
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginState());
 
+  void toggleObscurePassword() {
+    emit(state.copyWith(obscurePassword: !state.obscurePassword));
+  }
+
+  void goToRegister() => appRouter.replace(const RegisterScreenRoute());
+
   void onEmailChanged(String email) {
     emit(state.copyWith(email: email));
     changeFormValidation();

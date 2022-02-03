@@ -1,13 +1,27 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:licenta_georgebardas/main.dart';
 import 'package:licenta_georgebardas/repositories/auth_repository.dart';
 import 'package:licenta_georgebardas/utils/input_validation.dart';
+
+import '../../router.gr.dart';
 
 part 'register_cubit.freezed.dart';
 part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterState());
+
+  void togglePasswordObscure() {
+    emit(state.copyWith(obscurePassword: !state.obscurePassword));
+  }
+
+  void toggleConfirmPasswordObscure() {
+    emit(state.copyWith(obscureConfirmPassword: !state.obscureConfirmPassword));
+  }
+
+  void goToLogin() => appRouter.replace(const LoginScreenRoute());
 
   void onFirstNameChanged(String firstName) {
     emit(state.copyWith(firstName: firstName));
@@ -65,6 +79,9 @@ class RegisterCubit extends Cubit<RegisterState> {
 
     emit(state.copyWith(isLoading: false, emailAlreadyUsed: result == false));
 
-    if (result) print("success");
+    if (result) {
+      await FirebaseAuth.instance.signOut();
+      appRouter.popAndPush(const LoginScreenRoute());
+    }
   }
 }

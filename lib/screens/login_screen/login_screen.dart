@@ -1,8 +1,14 @@
+import 'dart:ui';
+
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:licenta_georgebardas/screens/login_screen/login_cubit.dart';
+import 'package:licenta_georgebardas/utils/assets.dart';
+import 'package:licenta_georgebardas/utils/colors.dart';
 import 'package:licenta_georgebardas/utils/input_validation.dart';
+import 'package:licenta_georgebardas/widgets/primary_button.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -14,28 +20,42 @@ class LoginScreen extends StatelessWidget {
       child: BlocBuilder<LoginCubit, LoginState>(
         builder: (context, state) {
           return Scaffold(
-            appBar: AppBar(
-              title: Text(AppLocalizations.of(context)?.login ?? ""),
-            ),
             body: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Center(
                   child: Container(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Form(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Text(
+                                AppLocalizations.of(context)?.login ?? "",
+                                style: TextStyle(
+                                  fontSize: 26,
+                                  color: AppColors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 15),
+                              Text(
+                                AppLocalizations.of(context)?.login_subtitle ??
+                                    "",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: AppColors.grey,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                              SizedBox(height: 40),
                               TextFormField(
                                 decoration: InputDecoration(
                                   label: Text(
                                       AppLocalizations.of(context)?.email ??
                                           ""),
-                                  border: OutlineInputBorder(),
-                                  prefixIcon: Icon(Icons.email),
                                 ),
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
@@ -60,8 +80,12 @@ class LoginScreen extends StatelessWidget {
                                   label: Text(
                                       AppLocalizations.of(context)?.password ??
                                           ""),
-                                  border: OutlineInputBorder(),
-                                  prefixIcon: Icon(Icons.password),
+                                  suffixIcon: IconButton(
+                                    onPressed: () => context
+                                        .read<LoginCubit>()
+                                        .toggleObscurePassword(),
+                                    icon: AppAssets.iconToggleObscurePassword,
+                                  ),
                                 ),
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
@@ -71,7 +95,7 @@ class LoginScreen extends StatelessWidget {
                                           ?.wrong_credentials
                                       : null;
                                 },
-                                obscureText: true,
+                                obscureText: state.obscurePassword,
                                 onChanged: (text) {
                                   context
                                       .read<LoginCubit>()
@@ -81,20 +105,48 @@ class LoginScreen extends StatelessWidget {
                             ],
                           ),
                         ),
+                        SizedBox(height: 60),
                         Visibility(
+                          maintainSize: true,
+                          maintainAnimation: true,
+                          maintainState: true,
                           visible: state.isLoading,
                           child: CircularProgressIndicator(),
                         ),
-                        ElevatedButton(
+                        SizedBox(height: 30),
+                        PrimaryButton(
+                          text: AppLocalizations.of(context)?.login ?? "",
                           onPressed: state.isFormValid
                               ? () => context.read<LoginCubit>().login()
                               : null,
-                          child: Padding(
-                            padding: const EdgeInsets.all(15.0),
-                            child:
-                                Text(AppLocalizations.of(context)?.login ?? ""),
-                          ),
                         ),
+                        SizedBox(height: 20),
+                        RichText(
+                          text: TextSpan(
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                            ),
+                            children: [
+                              TextSpan(
+                                  text: AppLocalizations.of(context)
+                                          ?.dont_have_account ??
+                                      ""),
+                              TextSpan(
+                                text: AppLocalizations.of(context)
+                                        ?.dont_have_account_register ??
+                                    "",
+                                recognizer: new TapGestureRecognizer()
+                                  ..onTap = () =>
+                                      context.read<LoginCubit>().goToRegister(),
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                ),
+                              )
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ),

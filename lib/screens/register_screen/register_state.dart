@@ -6,6 +6,8 @@ class RegisterState with _$RegisterState {
     @Default(false) bool isLoading,
     @Default(false) bool isFormValid,
     @Default(false) bool emailAlreadyUsed,
+    @Default(true) bool obscurePassword,
+    @Default(true) bool obscureConfirmPassword,
     @Default("") String firstName,
     @Default("") String lastName,
     @Default("") String email,

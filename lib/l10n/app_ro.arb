@@ -2,6 +2,7 @@
   "home_screen": "Acasa",
   "products_screen": "Produse",
   "cart": "Cos",
+  "favorites": "Favorite",
   "account_screen": "Cont",
 
   "login": "Autentificare",
@@ -11,6 +12,9 @@
   "password": "Parola",
   "email_error": "Format email invalid",
   "wrong_credentials": "Email sau parola gresita",
+  "login_subtitle": "Introdu datele de autentificare",
+  "dont_have_account": "Nu ai cont? ",
+  "dont_have_account_register": "Inregistreaza-te",
 
   "first_name": "Prenume",
   "last_name": "Nume",
@@ -18,5 +22,7 @@
   "password_error_short": "Parola trebuie sa contina minim 6 caractere",
   "confirm_password_error": "Parolele trebuie sa fie identice",
   "email_used_error": "Email-ul introdus este deja folosit",
-  "name_error": "Se pot folosi doar litere"
+  "name_error": "Se pot folosi doar litere",
+  "already_have_account": "Ai deja un cont? ",
+  "already_have_account_login": "Autentifica-te"
 }

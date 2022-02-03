@@ -4,6 +4,7 @@ part of 'login_cubit.dart';
 class LoginState with _$LoginState {
   const factory LoginState({
     @Default(false) bool isLoading,
+    @Default(true) bool obscurePassword,
     @Default(false) bool isFormValid,
     @Default(false) bool wrongCredentials,
     @Default("") String email,
