@@ -26,5 +26,17 @@
   "already_have_account": "Ai deja un cont? ",
   "already_have_account_login": "Autentifica-te",
 
-  "favorite_products_empty": "Nu ai salvat niciun produs favorit!"
+  "favorite_products_empty": "Nu ai salvat niciun produs favorit!",
+
+  "my_orders": "Comenzile mele",
+  "account_details": "Detalii cont",
+  "admin": "Admin",
+  "log_out": "Delogheaza-te",
+
+  "add_category": "Adauga categorie",
+  "add_category_field_title": "Titlu categorie",
+  "add_category_length_error": "Titlul trebuie sa contina minim 3 caractere!",
+  "add": "Adauga",
+
+  "add_product": "Adauga produs"
 }

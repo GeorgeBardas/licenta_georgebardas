@@ -28,6 +28,10 @@ class AccountCubit extends Cubit<AccountState> {
     );
   }
 
+  void goToAdmin() {
+    appRouter.push(const AdminScreenRoute());
+  }
+
   void logout() async {
     emit(state.copyWith(isLoading: true));
     await FirebaseAuth.instance.signOut();

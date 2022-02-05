@@ -4,9 +4,11 @@ part 'category.g.dart';
 
 @JsonSerializable()
 class Category {
+  final String id;
   final String title;
 
   Category({
+    this.id = "",
     required this.title,
   });
 

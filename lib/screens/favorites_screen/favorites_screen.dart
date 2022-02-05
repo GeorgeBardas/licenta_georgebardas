@@ -31,27 +31,29 @@ class FavoritesScreen extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                      child: state.isLoading
-                          ? Center(child: CircularProgressIndicator())
-                          : state.favoritesProducts.isEmpty
-                              ? Center(
-                                  child: Text(
-                                    AppLocalizations.of(context)
-                                            ?.favorite_products_empty ??
-                                        "",
-                                  ),
-                                )
-                              : GridView.builder(
-                                  gridDelegate:
-                                      SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2,
-                                  ),
-                                  itemCount: state.favoritesProducts.length,
-                                  itemBuilder: (context, index) {
-                                    return WrapProductItem(
-                                      product: state.favoritesProducts[index],
-                                    );
-                                  }))
+                    child: state.isLoading
+                        ? Center(child: CircularProgressIndicator())
+                        : state.favoritesProducts.isEmpty
+                            ? Center(
+                                child: Text(
+                                  AppLocalizations.of(context)
+                                          ?.favorite_products_empty ??
+                                      "",
+                                ),
+                              )
+                            : GridView.builder(
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                ),
+                                itemCount: state.favoritesProducts.length,
+                                itemBuilder: (context, index) {
+                                  return WrapProductItem(
+                                    product: state.favoritesProducts[index],
+                                  );
+                                },
+                              ),
+                  ),
                 ],
               ),
             ),

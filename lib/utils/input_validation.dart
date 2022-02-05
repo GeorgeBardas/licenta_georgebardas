@@ -19,4 +19,8 @@ class InputValidation {
     if (name == null) return false;
     return RegExp(r'^[a-zA-Z -]*$').hasMatch(name);
   }
+
+  bool validateCategory(String category) {
+    return category.length >= 3;
+  }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:licenta_georgebardas/screens/account_screen/account_cubit.dart';
 import 'package:licenta_georgebardas/screens/account_screen/widgets/account_screen_item_widget.dart';
 import 'package:licenta_georgebardas/screens/account_screen/widgets/user_avatar_placeholder_widget.dart';
@@ -55,7 +56,7 @@ class AccountScreen extends StatelessWidget {
                       Divider(thickness: 0.7),
                       AccountScreenItemWidget(
                         icon: AppAssets.iconOrders,
-                        title: "Comenzile mele",
+                        title: AppLocalizations.of(context)?.my_orders ?? "",
                         onTap: () {},
                       ),
                       Divider(
@@ -65,7 +66,8 @@ class AccountScreen extends StatelessWidget {
                       ),
                       AccountScreenItemWidget(
                         icon: AppAssets.iconAccountDetails,
-                        title: "Detalii cont",
+                        title:
+                            AppLocalizations.of(context)?.account_details ?? "",
                         onTap: () {},
                       ),
                       Divider(
@@ -78,8 +80,9 @@ class AccountScreen extends StatelessWidget {
                           children: [
                             AccountScreenItemWidget(
                               icon: AppAssets.iconAccountDetails,
-                              title: "Admin",
-                              onTap: () {},
+                              title: AppLocalizations.of(context)?.admin ?? "",
+                              onTap: () =>
+                                  context.read<AccountCubit>().goToAdmin(),
                             ),
                             Divider(
                               indent: 30,
@@ -90,7 +93,7 @@ class AccountScreen extends StatelessWidget {
                         ),
                       AccountScreenItemWidget(
                         icon: AppAssets.iconLogout,
-                        title: "Delogheaza-te",
+                        title: AppLocalizations.of(context)?.log_out ?? "",
                         onTap: () => context.read<AccountCubit>().logout(),
                       ),
                     ],

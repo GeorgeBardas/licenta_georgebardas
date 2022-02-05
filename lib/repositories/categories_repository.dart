@@ -23,4 +23,23 @@ class CategoriesRepository {
     else
       return null;
   }
+
+  Future<void> addCategory(Category newCategory) async {
+    await FirebaseFirestore.instance
+        .collection(DATABASE_CATEGORIES_KEY)
+        .withConverter<Category>(
+            fromFirestore: (snapshot, _) {
+              return Category.fromJson(snapshot.data()!);
+            },
+            toFirestore: (data, _) => data.toJson())
+        .add(newCategory)
+        .then((value) => value.update({"id": value.id}));
+  }
+
+  Future<void> removeCategory(Category newCategory) async {
+    await FirebaseFirestore.instance
+        .collection(DATABASE_CATEGORIES_KEY)
+        .doc(newCategory.id)
+        .delete();
+  }
 }

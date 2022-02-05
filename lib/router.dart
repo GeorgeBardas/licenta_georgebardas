@@ -1,4 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:licenta_georgebardas/screens/admin_screen/admin_add_category_screen/admin_add_category_screen.dart';
+import 'package:licenta_georgebardas/screens/admin_screen/admin_categories_screen/admin_categories_screen.dart';
+import 'package:licenta_georgebardas/screens/admin_screen/admin_screen.dart';
 import 'package:licenta_georgebardas/screens/home_screen/home_screen.dart';
 import 'package:licenta_georgebardas/screens/login_screen/login_screen.dart';
 import 'package:licenta_georgebardas/screens/register_screen/register_screen.dart';
@@ -22,6 +25,18 @@ import 'package:licenta_georgebardas/screens/welcome_screen.dart';
     CustomRoute(
       page: HomeScreen,
       transitionsBuilder: TransitionsBuilders.fadeIn,
+    ),
+    CustomRoute(
+      page: AdminScreen,
+      transitionsBuilder: TransitionsBuilders.slideLeft,
+    ),
+    CustomRoute(
+      page: AdminCategoriesScreen,
+      transitionsBuilder: TransitionsBuilders.slideLeft,
+    ),
+    CustomRoute(
+      page: AdminAddCategoryScreen,
+      transitionsBuilder: TransitionsBuilders.slideLeft,
     ),
   ],
 )
