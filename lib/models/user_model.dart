@@ -9,6 +9,7 @@ class UserModel {
   final String lastName;
   final String email;
   final bool isAdmin;
+  final List<String> favProductsIds;
 
   UserModel({
     required this.id,
@@ -16,6 +17,7 @@ class UserModel {
     required this.lastName,
     required this.email,
     this.isAdmin = false,
+    this.favProductsIds = const [],
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>

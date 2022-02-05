@@ -24,5 +24,7 @@
   "email_used_error": "Email-ul introdus este deja folosit",
   "name_error": "Se pot folosi doar litere",
   "already_have_account": "Ai deja un cont? ",
-  "already_have_account_login": "Autentifica-te"
+  "already_have_account_login": "Autentifica-te",
+
+  "favorite_products_empty": "Nu ai salvat niciun produs favorit!"
 }
