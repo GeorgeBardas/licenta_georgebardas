@@ -4,6 +4,7 @@ import 'package:licenta_georgebardas/screens/admin_screen/admin_categories_scree
 import 'package:licenta_georgebardas/screens/admin_screen/admin_screen.dart';
 import 'package:licenta_georgebardas/screens/home_screen/home_screen.dart';
 import 'package:licenta_georgebardas/screens/login_screen/login_screen.dart';
+import 'package:licenta_georgebardas/screens/product_screen/product_screen.dart';
 import 'package:licenta_georgebardas/screens/register_screen/register_screen.dart';
 import 'package:licenta_georgebardas/screens/welcome_screen.dart';
 
@@ -36,6 +37,10 @@ import 'package:licenta_georgebardas/screens/welcome_screen.dart';
     ),
     CustomRoute(
       page: AdminAddCategoryScreen,
+      transitionsBuilder: TransitionsBuilders.slideLeft,
+    ),
+    CustomRoute(
+      page: ProductScreen,
       transitionsBuilder: TransitionsBuilders.slideLeft,
     ),
   ],

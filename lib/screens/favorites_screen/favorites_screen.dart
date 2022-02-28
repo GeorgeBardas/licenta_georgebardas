@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:licenta_georgebardas/main.dart';
+import 'package:licenta_georgebardas/router.gr.dart';
 import 'package:licenta_georgebardas/screens/favorites_screen/favorites_cubit.dart';
 import 'package:licenta_georgebardas/utils/colors.dart';
 import 'package:licenta_georgebardas/widgets/wrap_product_item.dart';
@@ -50,6 +52,11 @@ class FavoritesScreen extends StatelessWidget {
                                 itemBuilder: (context, index) {
                                   return WrapProductItem(
                                     product: state.favoritesProducts[index],
+                                    onTap: () => appRouter.push(
+                                      ProductScreenRoute(
+                                        product: state.favoritesProducts[index],
+                                      ),
+                                    ),
                                   );
                                 },
                               ),

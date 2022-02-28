@@ -18,11 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$CartStateTearOff {
   const _$CartStateTearOff();
 
-  _CartState call(
-      {bool isLoading = false, List<Product>? likedProducts = null}) {
+  _CartState call({bool isLoading = false, List<Product> products = const []}) {
     return _CartState(
       isLoading: isLoading,
-      likedProducts: likedProducts,
+      products: products,
     );
   }
 }
@@ -33,7 +32,7 @@ const $CartState = _$CartStateTearOff();
 /// @nodoc
 mixin _$CartState {
   bool get isLoading => throw _privateConstructorUsedError;
-  List<Product>? get likedProducts => throw _privateConstructorUsedError;
+  List<Product> get products => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CartStateCopyWith<CartState> get copyWith =>
@@ -44,7 +43,7 @@ mixin _$CartState {
 abstract class $CartStateCopyWith<$Res> {
   factory $CartStateCopyWith(CartState value, $Res Function(CartState) then) =
       _$CartStateCopyWithImpl<$Res>;
-  $Res call({bool isLoading, List<Product>? likedProducts});
+  $Res call({bool isLoading, List<Product> products});
 }
 
 /// @nodoc
@@ -58,17 +57,17 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
   @override
   $Res call({
     Object? isLoading = freezed,
-    Object? likedProducts = freezed,
+    Object? products = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      likedProducts: likedProducts == freezed
-          ? _value.likedProducts
-          : likedProducts // ignore: cast_nullable_to_non_nullable
-              as List<Product>?,
+      products: products == freezed
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
     ));
   }
 }
@@ -79,7 +78,7 @@ abstract class _$CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
           _CartState value, $Res Function(_CartState) then) =
       __$CartStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLoading, List<Product>? likedProducts});
+  $Res call({bool isLoading, List<Product> products});
 }
 
 /// @nodoc
@@ -94,17 +93,17 @@ class __$CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
-    Object? likedProducts = freezed,
+    Object? products = freezed,
   }) {
     return _then(_CartState(
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      likedProducts: likedProducts == freezed
-          ? _value.likedProducts
-          : likedProducts // ignore: cast_nullable_to_non_nullable
-              as List<Product>?,
+      products: products == freezed
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
     ));
   }
 }
@@ -112,18 +111,18 @@ class __$CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CartState implements _CartState {
-  const _$_CartState({this.isLoading = false, this.likedProducts = null});
+  const _$_CartState({this.isLoading = false, this.products = const []});
 
   @JsonKey()
   @override
   final bool isLoading;
   @JsonKey()
   @override
-  final List<Product>? likedProducts;
+  final List<Product> products;
 
   @override
   String toString() {
-    return 'CartState(isLoading: $isLoading, likedProducts: $likedProducts)';
+    return 'CartState(isLoading: $isLoading, products: $products)';
   }
 
   @override
@@ -132,15 +131,14 @@ class _$_CartState implements _CartState {
         (other.runtimeType == runtimeType &&
             other is _CartState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.likedProducts, likedProducts));
+            const DeepCollectionEquality().equals(other.products, products));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(likedProducts));
+      const DeepCollectionEquality().hash(products));
 
   @JsonKey(ignore: true)
   @override
@@ -149,13 +147,13 @@ class _$_CartState implements _CartState {
 }
 
 abstract class _CartState implements CartState {
-  const factory _CartState({bool isLoading, List<Product>? likedProducts}) =
+  const factory _CartState({bool isLoading, List<Product> products}) =
       _$_CartState;
 
   @override
   bool get isLoading;
   @override
-  List<Product>? get likedProducts;
+  List<Product> get products;
   @override
   @JsonKey(ignore: true)
   _$CartStateCopyWith<_CartState> get copyWith =>

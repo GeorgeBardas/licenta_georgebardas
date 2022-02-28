@@ -41,6 +41,7 @@ dependencies:
   freezed_annotation: ^1.1.0
   localization: ^1.1.1
   flutter_svg: ^1.0.3
+  firebase_storage: ^10.2.7
 
 dev_dependencies:
   build_runner: ^2.1.7

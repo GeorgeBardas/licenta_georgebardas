@@ -4,6 +4,6 @@ part of 'cart_cubit.dart';
 class CartState with _$CartState {
   const factory CartState({
     @Default(false) bool isLoading,
-    @Default(null) List<Product>? likedProducts,
+    @Default([]) List<Product> products,
   }) = _CartState;
 }

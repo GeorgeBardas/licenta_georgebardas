@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:licenta_georgebardas/firebase_options.dart';
 import 'package:licenta_georgebardas/models/product.dart';
@@ -13,6 +14,15 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle.dark.copyWith(
+      //Android
+      statusBarColor: Colors.white,
+      //iOS
+      statusBarBrightness: Brightness.light,
+    ),
   );
 
   runApp(MyApp());
@@ -93,14 +103,22 @@ class WidgetTest extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          FirebaseFirestore.instance.collection(DATABASE_PRODUCTS_KEY).add(Product(
-                  title: "Produs",
-                  category: "test_category",
-                  price: 29.99,
-                  currency: "RON",
-                  image:
-                      "ho1_dnchwl_st_frontlow-host-dining-chair-tait-stone-walnut_1.jpeg")
-              .toJson());
+          FirebaseFirestore.instance
+              .collection(DATABASE_PRODUCTS_KEY)
+              .add(Product(
+                      title: "Produs",
+                      category: "test_category",
+                      price: 29.99,
+                      currency: "RON",
+                      image:
+                          "ho1_dnchwl_st_frontlow-host-dining-chair-tait-stone-walnut_1.jpeg")
+                  .toJson())
+              .then(
+                (value) => FirebaseFirestore.instance
+                    .collection(DATABASE_PRODUCTS_KEY)
+                    .doc(value.id)
+                    .set({"id": value.id}),
+              );
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),

@@ -1,6 +1,6 @@
 {
   "home_screen": "Acasa",
-  "products_screen": "Produse",
+  "products_screen": "Categorii",
   "cart": "Cos",
   "favorites": "Favorite",
   "account_screen": "Cont",
@@ -38,5 +38,7 @@
   "add_category_length_error": "Titlul trebuie sa contina minim 3 caractere!",
   "add": "Adauga",
 
-  "add_product": "Adauga produs"
+  "add_product": "Adauga produs",
+
+  "add_to_cart": "Adauga in cos"
 }
