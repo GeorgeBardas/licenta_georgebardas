@@ -25,7 +25,13 @@ class WrapProductItem extends StatelessWidget {
           padding: EdgeInsets.only(top: 10, bottom: 10),
           width: MediaQuery.of(context).size.width * 0.3,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              Expanded(
+                child: Center(
+                  child: Icon(Icons.photo),
+                ),
+              ),
               Text(product.title ?? ""),
               SizedBox(
                 height: 10,

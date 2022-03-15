@@ -5,6 +5,7 @@ import 'package:licenta_georgebardas/main.dart';
 import 'package:licenta_georgebardas/router.gr.dart';
 import 'package:licenta_georgebardas/screens/admin_screen/admin_categories_screen/admin_categories_cubit.dart';
 import 'package:licenta_georgebardas/screens/products_screen/products_screen.dart';
+import 'package:licenta_georgebardas/utils/dialog_helpers.dart';
 
 class AdminCategoriesScreen extends StatelessWidget {
   const AdminCategoriesScreen({Key? key}) : super(key: key);
@@ -47,39 +48,17 @@ class AdminCategoriesScreen extends StatelessWidget {
                       itemCount: state.categories.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
-                          onTap: () => showDialog(
-                              context: context,
-                              builder: (_) => AlertDialog(
-                                    title: const Text('Sterge categoria'),
-                                    content: new Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text(
-                                            "Vrei sa stergi categoria ${state.categories[index].title}?"),
-                                      ],
-                                    ),
-                                    actions: <Widget>[
-                                      ElevatedButton(
-                                        onPressed: () {
-                                          context
-                                              .read<AdminCategoriesCubit>()
-                                              .deleteCategory(
-                                                state.categories[index],
-                                              );
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: const Text('DA'),
-                                      ),
-                                      ElevatedButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: const Text('NU'),
-                                      ),
-                                    ],
-                                  )),
+                          onTap: () => showDeleteDialog(
+                            context: context,
+                            title: 'Sterge categoria',
+                            body:
+                                "Vrei sa stergi categoria ${state.categories[index].title}?",
+                            onPositivePressed: () => context
+                                .read<AdminCategoriesCubit>()
+                                .deleteCategory(
+                                  state.categories[index],
+                                ),
+                          ),
                           child: CategoryItemWidget(
                             category: state.categories[index],
                           ),

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:licenta_georgebardas/screens/cart_screen/cart_cubit.dart';
 import 'package:licenta_georgebardas/utils/colors.dart';
+import 'package:licenta_georgebardas/utils/dialog_helpers.dart';
 import 'package:licenta_georgebardas/widgets/wrap_product_item.dart';
 
 class CartScreen extends StatelessWidget {
@@ -34,10 +35,12 @@ class CartScreen extends StatelessWidget {
                         ? Center(child: CircularProgressIndicator())
                         : state.products.isEmpty
                             ? Center(
-                                child: Text(
-                                  AppLocalizations.of(context)
-                                          ?.favorite_products_empty ??
-                                      "",
+                                child: Container(
+                                  child: Text(
+                                    AppLocalizations.of(context)
+                                            ?.cart_products_empty ??
+                                        "",
+                                  ),
                                 ),
                               )
                             : GridView.builder(
@@ -49,10 +52,29 @@ class CartScreen extends StatelessWidget {
                                 itemBuilder: (context, index) {
                                   return WrapProductItem(
                                     product: state.products[index],
+                                    onTap: () => showDeleteDialog(
+                                      context: context,
+                                      title: "Stergere din cos",
+                                      body:
+                                          "Vrei sa stergi din cos produsul ${state.products[index].title}?",
+                                      onPositivePressed: () => context
+                                          .read<CartCubit>()
+                                          .toggleCart(state.products[index]),
+                                    ),
                                   );
                                 },
                               ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("TOTAL"),
+                        Text("${state.total} RON"),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),

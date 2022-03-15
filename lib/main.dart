@@ -88,12 +88,6 @@ class WidgetTest extends StatelessWidget {
                           .toList() ??
                       [Container()],
                 );
-                return ListView.builder(
-                    itemCount: products?.length,
-                    itemBuilder: (context, index) {
-                      return Text(
-                          "${products?[index].title} ${products?[index].price}");
-                    });
               }
 
               return Center(child: CircularProgressIndicator());

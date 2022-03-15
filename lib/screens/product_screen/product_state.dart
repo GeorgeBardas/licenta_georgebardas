@@ -5,6 +5,7 @@ class ProductState with _$ProductState {
   const factory ProductState({
     @Default(false) bool isLoading,
     @Default(false) bool isFavorite,
+    @Default(false) bool isInCart,
     @Default("") String imageUrl,
   }) = _ProductState;
 }

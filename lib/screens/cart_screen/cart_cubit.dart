@@ -19,5 +19,21 @@ class CartCubit extends Cubit<CartState> {
         products: await ProductsRepository().getCartProducts(),
       ),
     );
+    _getTotal();
+  }
+
+  void _getTotal() {
+    double total = 0;
+    if (state.products.isNotEmpty) {
+      state.products.forEach((product) {
+        total += product.price ?? 0;
+      });
+    }
+    emit(state.copyWith(total: total));
+  }
+
+  Future<void> toggleCart(Product product) async {
+    await ProductsRepository().toggleProductCart(product);
+    getProducts();
   }
 }

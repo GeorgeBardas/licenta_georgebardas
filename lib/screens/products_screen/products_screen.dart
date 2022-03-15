@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:licenta_georgebardas/main.dart';
 import 'package:licenta_georgebardas/models/category.dart';
+import 'package:licenta_georgebardas/router.gr.dart';
 import 'package:licenta_georgebardas/screens/products_screen/products_cubit.dart';
 import 'package:licenta_georgebardas/utils/colors.dart';
 
@@ -55,7 +57,12 @@ class CategoryItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      onTap: () => appRouter.push(
+        CategoryProductsScreenRoute(
+          category: category,
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Row(

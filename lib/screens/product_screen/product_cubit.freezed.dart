@@ -19,10 +19,14 @@ class _$ProductStateTearOff {
   const _$ProductStateTearOff();
 
   _ProductState call(
-      {bool isLoading = false, bool isFavorite = false, String imageUrl = ""}) {
+      {bool isLoading = false,
+      bool isFavorite = false,
+      bool isInCart = false,
+      String imageUrl = ""}) {
     return _ProductState(
       isLoading: isLoading,
       isFavorite: isFavorite,
+      isInCart: isInCart,
       imageUrl: imageUrl,
     );
   }
@@ -35,6 +39,7 @@ const $ProductState = _$ProductStateTearOff();
 mixin _$ProductState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isFavorite => throw _privateConstructorUsedError;
+  bool get isInCart => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -47,7 +52,7 @@ abstract class $ProductStateCopyWith<$Res> {
   factory $ProductStateCopyWith(
           ProductState value, $Res Function(ProductState) then) =
       _$ProductStateCopyWithImpl<$Res>;
-  $Res call({bool isLoading, bool isFavorite, String imageUrl});
+  $Res call({bool isLoading, bool isFavorite, bool isInCart, String imageUrl});
 }
 
 /// @nodoc
@@ -62,6 +67,7 @@ class _$ProductStateCopyWithImpl<$Res> implements $ProductStateCopyWith<$Res> {
   $Res call({
     Object? isLoading = freezed,
     Object? isFavorite = freezed,
+    Object? isInCart = freezed,
     Object? imageUrl = freezed,
   }) {
     return _then(_value.copyWith(
@@ -72,6 +78,10 @@ class _$ProductStateCopyWithImpl<$Res> implements $ProductStateCopyWith<$Res> {
       isFavorite: isFavorite == freezed
           ? _value.isFavorite
           : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isInCart: isInCart == freezed
+          ? _value.isInCart
+          : isInCart // ignore: cast_nullable_to_non_nullable
               as bool,
       imageUrl: imageUrl == freezed
           ? _value.imageUrl
@@ -88,7 +98,7 @@ abstract class _$ProductStateCopyWith<$Res>
           _ProductState value, $Res Function(_ProductState) then) =
       __$ProductStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLoading, bool isFavorite, String imageUrl});
+  $Res call({bool isLoading, bool isFavorite, bool isInCart, String imageUrl});
 }
 
 /// @nodoc
@@ -105,6 +115,7 @@ class __$ProductStateCopyWithImpl<$Res> extends _$ProductStateCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = freezed,
     Object? isFavorite = freezed,
+    Object? isInCart = freezed,
     Object? imageUrl = freezed,
   }) {
     return _then(_ProductState(
@@ -115,6 +126,10 @@ class __$ProductStateCopyWithImpl<$Res> extends _$ProductStateCopyWithImpl<$Res>
       isFavorite: isFavorite == freezed
           ? _value.isFavorite
           : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isInCart: isInCart == freezed
+          ? _value.isInCart
+          : isInCart // ignore: cast_nullable_to_non_nullable
               as bool,
       imageUrl: imageUrl == freezed
           ? _value.imageUrl
@@ -128,7 +143,10 @@ class __$ProductStateCopyWithImpl<$Res> extends _$ProductStateCopyWithImpl<$Res>
 
 class _$_ProductState implements _ProductState {
   const _$_ProductState(
-      {this.isLoading = false, this.isFavorite = false, this.imageUrl = ""});
+      {this.isLoading = false,
+      this.isFavorite = false,
+      this.isInCart = false,
+      this.imageUrl = ""});
 
   @JsonKey()
   @override
@@ -138,11 +156,14 @@ class _$_ProductState implements _ProductState {
   final bool isFavorite;
   @JsonKey()
   @override
+  final bool isInCart;
+  @JsonKey()
+  @override
   final String imageUrl;
 
   @override
   String toString() {
-    return 'ProductState(isLoading: $isLoading, isFavorite: $isFavorite, imageUrl: $imageUrl)';
+    return 'ProductState(isLoading: $isLoading, isFavorite: $isFavorite, isInCart: $isInCart, imageUrl: $imageUrl)';
   }
 
   @override
@@ -153,6 +174,7 @@ class _$_ProductState implements _ProductState {
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
                 .equals(other.isFavorite, isFavorite) &&
+            const DeepCollectionEquality().equals(other.isInCart, isInCart) &&
             const DeepCollectionEquality().equals(other.imageUrl, imageUrl));
   }
 
@@ -161,6 +183,7 @@ class _$_ProductState implements _ProductState {
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(isFavorite),
+      const DeepCollectionEquality().hash(isInCart),
       const DeepCollectionEquality().hash(imageUrl));
 
   @JsonKey(ignore: true)
@@ -171,12 +194,17 @@ class _$_ProductState implements _ProductState {
 
 abstract class _ProductState implements ProductState {
   const factory _ProductState(
-      {bool isLoading, bool isFavorite, String imageUrl}) = _$_ProductState;
+      {bool isLoading,
+      bool isFavorite,
+      bool isInCart,
+      String imageUrl}) = _$_ProductState;
 
   @override
   bool get isLoading;
   @override
   bool get isFavorite;
+  @override
+  bool get isInCart;
   @override
   String get imageUrl;
   @override

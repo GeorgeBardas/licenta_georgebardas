@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'cart_cubit.dart';
+part of 'category_products_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,55 +15,52 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$CartStateTearOff {
-  const _$CartStateTearOff();
+class _$CategoryProductsStateTearOff {
+  const _$CategoryProductsStateTearOff();
 
-  _CartState call(
-      {bool isLoading = false,
-      List<Product> products = const [],
-      double total = 0.0}) {
-    return _CartState(
+  _CategoryProductsState call(
+      {bool isLoading = false, List<Product> products = const []}) {
+    return _CategoryProductsState(
       isLoading: isLoading,
       products: products,
-      total: total,
     );
   }
 }
 
 /// @nodoc
-const $CartState = _$CartStateTearOff();
+const $CategoryProductsState = _$CategoryProductsStateTearOff();
 
 /// @nodoc
-mixin _$CartState {
+mixin _$CategoryProductsState {
   bool get isLoading => throw _privateConstructorUsedError;
   List<Product> get products => throw _privateConstructorUsedError;
-  double get total => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CartStateCopyWith<CartState> get copyWith =>
+  $CategoryProductsStateCopyWith<CategoryProductsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CartStateCopyWith<$Res> {
-  factory $CartStateCopyWith(CartState value, $Res Function(CartState) then) =
-      _$CartStateCopyWithImpl<$Res>;
-  $Res call({bool isLoading, List<Product> products, double total});
+abstract class $CategoryProductsStateCopyWith<$Res> {
+  factory $CategoryProductsStateCopyWith(CategoryProductsState value,
+          $Res Function(CategoryProductsState) then) =
+      _$CategoryProductsStateCopyWithImpl<$Res>;
+  $Res call({bool isLoading, List<Product> products});
 }
 
 /// @nodoc
-class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
-  _$CartStateCopyWithImpl(this._value, this._then);
+class _$CategoryProductsStateCopyWithImpl<$Res>
+    implements $CategoryProductsStateCopyWith<$Res> {
+  _$CategoryProductsStateCopyWithImpl(this._value, this._then);
 
-  final CartState _value;
+  final CategoryProductsState _value;
   // ignore: unused_field
-  final $Res Function(CartState) _then;
+  final $Res Function(CategoryProductsState) _then;
 
   @override
   $Res call({
     Object? isLoading = freezed,
     Object? products = freezed,
-    Object? total = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -74,39 +71,37 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
               as List<Product>,
-      total: total == freezed
-          ? _value.total
-          : total // ignore: cast_nullable_to_non_nullable
-              as double,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
-  factory _$CartStateCopyWith(
-          _CartState value, $Res Function(_CartState) then) =
-      __$CartStateCopyWithImpl<$Res>;
+abstract class _$CategoryProductsStateCopyWith<$Res>
+    implements $CategoryProductsStateCopyWith<$Res> {
+  factory _$CategoryProductsStateCopyWith(_CategoryProductsState value,
+          $Res Function(_CategoryProductsState) then) =
+      __$CategoryProductsStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLoading, List<Product> products, double total});
+  $Res call({bool isLoading, List<Product> products});
 }
 
 /// @nodoc
-class __$CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
-    implements _$CartStateCopyWith<$Res> {
-  __$CartStateCopyWithImpl(_CartState _value, $Res Function(_CartState) _then)
-      : super(_value, (v) => _then(v as _CartState));
+class __$CategoryProductsStateCopyWithImpl<$Res>
+    extends _$CategoryProductsStateCopyWithImpl<$Res>
+    implements _$CategoryProductsStateCopyWith<$Res> {
+  __$CategoryProductsStateCopyWithImpl(_CategoryProductsState _value,
+      $Res Function(_CategoryProductsState) _then)
+      : super(_value, (v) => _then(v as _CategoryProductsState));
 
   @override
-  _CartState get _value => super._value as _CartState;
+  _CategoryProductsState get _value => super._value as _CategoryProductsState;
 
   @override
   $Res call({
     Object? isLoading = freezed,
     Object? products = freezed,
-    Object? total = freezed,
   }) {
-    return _then(_CartState(
+    return _then(_CategoryProductsState(
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -115,19 +110,15 @@ class __$CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
               as List<Product>,
-      total: total == freezed
-          ? _value.total
-          : total // ignore: cast_nullable_to_non_nullable
-              as double,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_CartState implements _CartState {
-  const _$_CartState(
-      {this.isLoading = false, this.products = const [], this.total = 0.0});
+class _$_CategoryProductsState implements _CategoryProductsState {
+  const _$_CategoryProductsState(
+      {this.isLoading = false, this.products = const []});
 
   @JsonKey()
   @override
@@ -135,50 +126,44 @@ class _$_CartState implements _CartState {
   @JsonKey()
   @override
   final List<Product> products;
-  @JsonKey()
-  @override
-  final double total;
 
   @override
   String toString() {
-    return 'CartState(isLoading: $isLoading, products: $products, total: $total)';
+    return 'CategoryProductsState(isLoading: $isLoading, products: $products)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CartState &&
+            other is _CategoryProductsState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality().equals(other.products, products) &&
-            const DeepCollectionEquality().equals(other.total, total));
+            const DeepCollectionEquality().equals(other.products, products));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(products),
-      const DeepCollectionEquality().hash(total));
+      const DeepCollectionEquality().hash(products));
 
   @JsonKey(ignore: true)
   @override
-  _$CartStateCopyWith<_CartState> get copyWith =>
-      __$CartStateCopyWithImpl<_CartState>(this, _$identity);
+  _$CategoryProductsStateCopyWith<_CategoryProductsState> get copyWith =>
+      __$CategoryProductsStateCopyWithImpl<_CategoryProductsState>(
+          this, _$identity);
 }
 
-abstract class _CartState implements CartState {
-  const factory _CartState(
-      {bool isLoading, List<Product> products, double total}) = _$_CartState;
+abstract class _CategoryProductsState implements CategoryProductsState {
+  const factory _CategoryProductsState(
+      {bool isLoading, List<Product> products}) = _$_CategoryProductsState;
 
   @override
   bool get isLoading;
   @override
   List<Product> get products;
   @override
-  double get total;
-  @override
   @JsonKey(ignore: true)
-  _$CartStateCopyWith<_CartState> get copyWith =>
+  _$CategoryProductsStateCopyWith<_CategoryProductsState> get copyWith =>
       throw _privateConstructorUsedError;
 }

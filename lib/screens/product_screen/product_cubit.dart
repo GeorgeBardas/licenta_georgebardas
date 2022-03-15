@@ -15,6 +15,7 @@ class ProductCubit extends Cubit<ProductState> {
   void init() async {
     if (product.image != null) await getImageUrl();
     getIsFavorite();
+    getIsInCart();
   }
 
   Future<void> getImageUrl() async {
@@ -36,8 +37,21 @@ class ProductCubit extends Cubit<ProductState> {
     );
   }
 
+  Future<void> getIsInCart() async {
+    emit(
+      state.copyWith(
+        isInCart: await ProductsRepository().getIsInCart(product),
+      ),
+    );
+  }
+
   Future<void> toggleFavorite() async {
     await ProductsRepository().toggleProductFavorite(product);
     getIsFavorite();
+  }
+
+  Future<void> toggleCart() async {
+    await ProductsRepository().toggleProductCart(product);
+    getIsInCart();
   }
 }

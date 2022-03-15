@@ -97,8 +97,11 @@ class ProductScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(25),
                     child: PrimaryButton(
-                      text: AppLocalizations.of(context)?.add_to_cart ?? "",
-                      onPressed: () {},
+                      text: state.isInCart
+                          ? AppLocalizations.of(context)?.remove_from_cart ?? ""
+                          : AppLocalizations.of(context)?.add_to_cart ?? "",
+                      onPressed: () =>
+                          context.read<ProductCubit>().toggleCart(),
                     ),
                   ),
                 ],

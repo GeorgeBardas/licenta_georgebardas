@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:licenta_georgebardas/main.dart';
 import 'package:licenta_georgebardas/screens/account_screen/widgets/account_screen_item_widget.dart';
-import 'package:licenta_georgebardas/screens/admin_screen/admin_categories_screen/admin_categories_screen.dart';
 import 'package:licenta_georgebardas/utils/assets.dart';
 import 'package:licenta_georgebardas/utils/colors.dart';
 
@@ -48,7 +47,8 @@ class AdminScreen extends StatelessWidget {
                   AccountScreenItemWidget(
                     icon: AppAssets.iconOrders,
                     title: AppLocalizations.of(context)?.add_product ?? "",
-                    onTap: () {},
+                    onTap: () =>
+                        appRouter.push(const AdminProductsScreenRoute()),
                   ),
                 ],
               ),

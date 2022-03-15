@@ -27,6 +27,8 @@
   "already_have_account_login": "Autentifica-te",
 
   "favorite_products_empty": "Nu ai salvat niciun produs favorit!",
+  "cart_products_empty": "Nu ai salvat niciun produs in cos!",
+  "products_empty": "Nu s-a gasit niciun produs!",
 
   "my_orders": "Comenzile mele",
   "account_details": "Detalii cont",
@@ -40,5 +42,6 @@
 
   "add_product": "Adauga produs",
 
-  "add_to_cart": "Adauga in cos"
+  "add_to_cart": "Adauga in cos",
+  "remove_from_cart": "Scoate din cos"
 }
