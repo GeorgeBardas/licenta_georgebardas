@@ -144,6 +144,13 @@ class ProductsRepository {
         .update({CART_PRODUCTS_KEY: cartProductsArray});
   }
 
+  Future<void> emptyCart() async {
+    await FirebaseFirestore.instance
+        .collection(DATABASE_USERS_KEY)
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .update({CART_PRODUCTS_KEY: []});
+  }
+
   Future<List<Product>> getCartProducts() async {
     final List<dynamic> cartProductsIds = (await FirebaseFirestore.instance
             .collection(DATABASE_USERS_KEY)

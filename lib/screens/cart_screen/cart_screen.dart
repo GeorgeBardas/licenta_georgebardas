@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:licenta_georgebardas/screens/cart_screen/cart_cubit.dart';
 import 'package:licenta_georgebardas/utils/colors.dart';
 import 'package:licenta_georgebardas/utils/dialog_helpers.dart';
+import 'package:licenta_georgebardas/widgets/primary_button.dart';
 import 'package:licenta_georgebardas/widgets/wrap_product_item.dart';
 
 class CartScreen extends StatelessWidget {
@@ -73,6 +74,13 @@ class CartScreen extends StatelessWidget {
                         Text("TOTAL"),
                         Text("${state.total} RON"),
                       ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: PrimaryButton(
+                      text: "Cumpara",
+                      onPressed: context.read<CartCubit>().purchaseProducts,
                     ),
                   )
                 ],

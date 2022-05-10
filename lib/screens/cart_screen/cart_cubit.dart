@@ -1,7 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:licenta_georgebardas/models/product.dart';
+import 'package:licenta_georgebardas/models/purchase.dart';
 import 'package:licenta_georgebardas/repositories/products_repository.dart';
+import 'package:licenta_georgebardas/repositories/purchase_repository.dart';
 
 part 'cart_cubit.freezed.dart';
 part 'cart_state.dart';
@@ -35,5 +37,27 @@ class CartCubit extends Cubit<CartState> {
   Future<void> toggleCart(Product product) async {
     await ProductsRepository().toggleProductCart(product);
     getProducts();
+  }
+
+  void purchaseProducts() async {
+    emit(state.copyWith(isLoading: true));
+
+    await PurchaseRepository().addPurchase(
+      Purchase(
+        productsId: state.products.map((product) => product.id!).toList(),
+        price: state.total,
+        timestamp: DateTime.now().millisecondsSinceEpoch.toString(),
+      ),
+    );
+
+    await ProductsRepository().emptyCart();
+
+    emit(
+      state.copyWith(
+        isLoading: false,
+        products: [],
+        total: 0,
+      ),
+    );
   }
 }
