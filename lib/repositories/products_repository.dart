@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:licenta_georgebardas/models/category.dart';
 import 'package:licenta_georgebardas/models/product.dart';
 import 'package:licenta_georgebardas/utils/constants.dart';
@@ -74,6 +78,11 @@ class ProductsRepository {
         .collection(DATABASE_PRODUCTS_KEY)
         .doc(product.id)
         .delete();
+    try {
+      await FirebaseStorage.instance.ref("products/${product.image}").delete();
+    } catch (e) {
+      debugPrint(e.toString());
+    }
   }
 
   Future<bool> getIsFavorite(Product product) async {
@@ -186,5 +195,31 @@ class ProductsRepository {
                 toFirestore: (data, _) => data.toJson())
             .get())
         .data();
+  }
+
+  Future<void> addProduct(Product product, XFile image) async {
+    await FirebaseFirestore.instance
+        .collection(DATABASE_PRODUCTS_KEY)
+        .withConverter<Product>(
+            fromFirestore: (snapshot, _) {
+              return Product.fromJson(snapshot.data()!);
+            },
+            toFirestore: (data, _) => data.toJson())
+        .add(product)
+        .then((product) async {
+      await product.update({"id": product.id});
+      await FirebaseStorage.instance
+          .ref("$DATABASE_PRODUCTS_KEY/${product.id}")
+          .putFile(File(image.path))
+          .then(
+        (p0) async {
+          await FirebaseStorage.instance
+              .ref("$DATABASE_PRODUCTS_KEY/${product.id}")
+              .getDownloadURL()
+              .then((value) => product.update({"image": value}));
+        },
+        onError: (error) => print(error),
+      );
+    });
   }
 }

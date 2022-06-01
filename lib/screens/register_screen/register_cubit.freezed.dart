@@ -28,7 +28,8 @@ class _$RegisterStateTearOff {
       String lastName = "",
       String email = "",
       String password = "",
-      String confirmPassword = ""}) {
+      String confirmPassword = "",
+      DateTime? birthDay}) {
     return _RegisterState(
       isLoading: isLoading,
       isFormValid: isFormValid,
@@ -40,6 +41,7 @@ class _$RegisterStateTearOff {
       email: email,
       password: password,
       confirmPassword: confirmPassword,
+      birthDay: birthDay,
     );
   }
 }
@@ -59,6 +61,7 @@ mixin _$RegisterState {
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   String get confirmPassword => throw _privateConstructorUsedError;
+  DateTime? get birthDay => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RegisterStateCopyWith<RegisterState> get copyWith =>
@@ -80,7 +83,8 @@ abstract class $RegisterStateCopyWith<$Res> {
       String lastName,
       String email,
       String password,
-      String confirmPassword});
+      String confirmPassword,
+      DateTime? birthDay});
 }
 
 /// @nodoc
@@ -104,6 +108,7 @@ class _$RegisterStateCopyWithImpl<$Res>
     Object? email = freezed,
     Object? password = freezed,
     Object? confirmPassword = freezed,
+    Object? birthDay = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -146,6 +151,10 @@ class _$RegisterStateCopyWithImpl<$Res>
           ? _value.confirmPassword
           : confirmPassword // ignore: cast_nullable_to_non_nullable
               as String,
+      birthDay: birthDay == freezed
+          ? _value.birthDay
+          : birthDay // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -167,7 +176,8 @@ abstract class _$RegisterStateCopyWith<$Res>
       String lastName,
       String email,
       String password,
-      String confirmPassword});
+      String confirmPassword,
+      DateTime? birthDay});
 }
 
 /// @nodoc
@@ -193,6 +203,7 @@ class __$RegisterStateCopyWithImpl<$Res>
     Object? email = freezed,
     Object? password = freezed,
     Object? confirmPassword = freezed,
+    Object? birthDay = freezed,
   }) {
     return _then(_RegisterState(
       isLoading: isLoading == freezed
@@ -235,6 +246,10 @@ class __$RegisterStateCopyWithImpl<$Res>
           ? _value.confirmPassword
           : confirmPassword // ignore: cast_nullable_to_non_nullable
               as String,
+      birthDay: birthDay == freezed
+          ? _value.birthDay
+          : birthDay // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -252,7 +267,8 @@ class _$_RegisterState implements _RegisterState {
       this.lastName = "",
       this.email = "",
       this.password = "",
-      this.confirmPassword = ""});
+      this.confirmPassword = "",
+      this.birthDay});
 
   @JsonKey()
   @override
@@ -284,10 +300,12 @@ class _$_RegisterState implements _RegisterState {
   @JsonKey()
   @override
   final String confirmPassword;
+  @override
+  final DateTime? birthDay;
 
   @override
   String toString() {
-    return 'RegisterState(isLoading: $isLoading, isFormValid: $isFormValid, emailAlreadyUsed: $emailAlreadyUsed, obscurePassword: $obscurePassword, obscureConfirmPassword: $obscureConfirmPassword, firstName: $firstName, lastName: $lastName, email: $email, password: $password, confirmPassword: $confirmPassword)';
+    return 'RegisterState(isLoading: $isLoading, isFormValid: $isFormValid, emailAlreadyUsed: $emailAlreadyUsed, obscurePassword: $obscurePassword, obscureConfirmPassword: $obscureConfirmPassword, firstName: $firstName, lastName: $lastName, email: $email, password: $password, confirmPassword: $confirmPassword, birthDay: $birthDay)';
   }
 
   @override
@@ -309,7 +327,8 @@ class _$_RegisterState implements _RegisterState {
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality().equals(other.password, password) &&
             const DeepCollectionEquality()
-                .equals(other.confirmPassword, confirmPassword));
+                .equals(other.confirmPassword, confirmPassword) &&
+            const DeepCollectionEquality().equals(other.birthDay, birthDay));
   }
 
   @override
@@ -324,7 +343,8 @@ class _$_RegisterState implements _RegisterState {
       const DeepCollectionEquality().hash(lastName),
       const DeepCollectionEquality().hash(email),
       const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(confirmPassword));
+      const DeepCollectionEquality().hash(confirmPassword),
+      const DeepCollectionEquality().hash(birthDay));
 
   @JsonKey(ignore: true)
   @override
@@ -343,7 +363,8 @@ abstract class _RegisterState implements RegisterState {
       String lastName,
       String email,
       String password,
-      String confirmPassword}) = _$_RegisterState;
+      String confirmPassword,
+      DateTime? birthDay}) = _$_RegisterState;
 
   @override
   bool get isLoading;
@@ -365,6 +386,8 @@ abstract class _RegisterState implements RegisterState {
   String get password;
   @override
   String get confirmPassword;
+  @override
+  DateTime? get birthDay;
   @override
   @JsonKey(ignore: true)
   _$RegisterStateCopyWith<_RegisterState> get copyWith =>

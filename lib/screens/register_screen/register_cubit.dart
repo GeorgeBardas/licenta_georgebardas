@@ -48,6 +48,11 @@ class RegisterCubit extends Cubit<RegisterState> {
     changeFormValidation();
   }
 
+  void onBirthdayChanged(DateTime dateTime) {
+    emit(state.copyWith(birthDay: dateTime));
+    changeFormValidation();
+  }
+
   void changeFormValidation() {
     emit(
       state.copyWith(
@@ -62,7 +67,11 @@ class RegisterCubit extends Cubit<RegisterState> {
             InputValidation().validatePassword(state.password) &&
             InputValidation().validateConfirmPassword(
                 state.password, state.confirmPassword) &&
-            state.password == state.confirmPassword,
+            state.password == state.confirmPassword &&
+            state.birthDay != null &&
+            DateTime(DateTime.now().year - 18, DateTime.now().month,
+                    DateTime.now().day)
+                .isAfter(state.birthDay!),
       ),
     );
   }
@@ -75,9 +84,13 @@ class RegisterCubit extends Cubit<RegisterState> {
       state.lastName,
       state.email,
       state.password,
+      state.birthDay!,
     );
 
-    emit(state.copyWith(isLoading: false, emailAlreadyUsed: result == false));
+    emit(state.copyWith(
+      isLoading: false,
+      emailAlreadyUsed: result == false,
+    ));
 
     if (result) {
       await FirebaseAuth.instance.signOut();

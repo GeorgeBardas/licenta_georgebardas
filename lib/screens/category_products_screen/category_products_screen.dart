@@ -7,7 +7,7 @@ import 'package:licenta_georgebardas/router.gr.dart';
 import 'package:licenta_georgebardas/screens/category_products_screen/category_products_cubit.dart';
 import 'package:licenta_georgebardas/screens/products_screen/products_cubit.dart';
 import 'package:licenta_georgebardas/utils/colors.dart';
-import 'package:licenta_georgebardas/widgets/wrap_product_item.dart';
+import 'package:licenta_georgebardas/widgets/wrap_product_item/wrap_product_item.dart';
 
 class CategoryProductsScreen extends StatelessWidget {
   const CategoryProductsScreen({
@@ -56,6 +56,7 @@ class CategoryProductsScreen extends StatelessWidget {
                                   gridDelegate:
                                       SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 2,
+                                    childAspectRatio: 0.65,
                                   ),
                                   itemCount: state.products.length,
                                   itemBuilder: (context, index) {
@@ -75,34 +76,6 @@ class CategoryProductsScreen extends StatelessWidget {
               ],
             );
           },
-        ),
-      ),
-    );
-  }
-}
-
-class CategoryItemWidget extends StatelessWidget {
-  const CategoryItemWidget({required this.category, Key? key})
-      : super(key: key);
-
-  final Category? category;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Row(
-          children: [
-            Icon(Icons.category),
-            SizedBox(
-              width: 15,
-            ),
-            Text(
-              category?.title ?? "",
-              style: TextStyle(fontSize: 18),
-            ),
-          ],
         ),
       ),
     );

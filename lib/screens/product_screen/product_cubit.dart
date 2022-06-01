@@ -1,4 +1,3 @@
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:licenta_georgebardas/models/product.dart';
@@ -13,21 +12,15 @@ class ProductCubit extends Cubit<ProductState> {
   final Product product;
 
   void init() async {
-    if (product.image != null) await getImageUrl();
     getIsFavorite();
     getIsInCart();
   }
 
-  Future<void> getImageUrl() async {
-    emit(
-      state.copyWith(
-        imageUrl: await (FirebaseStorage.instance
-                .ref("products")
-                .child(product.image!))
-            .getDownloadURL(),
-      ),
-    );
-  }
+  void setQuantity(int newQuantity) => emit(
+        state.copyWith(
+          quantity: newQuantity,
+        ),
+      );
 
   Future<void> getIsFavorite() async {
     emit(

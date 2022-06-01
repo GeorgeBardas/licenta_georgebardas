@@ -25,19 +25,20 @@ class AuthRepository {
     return result != null;
   }
 
-  Future<bool> register(
-      String firstName, String lastName, String email, String password) async {
+  Future<bool> register(String firstName, String lastName, String email,
+      String password, DateTime birth) async {
     UserCredential? result;
 
     try {
       result = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
-      UserRepository().createUser(
+      await UserRepository().createUser(
         UserModel(
           id: result.user!.uid,
           firstName: firstName,
           lastName: lastName,
           email: email,
+          birthday: birth.toString(),
         ),
       );
     } catch (error) {

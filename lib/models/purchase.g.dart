@@ -13,6 +13,7 @@ Purchase _$PurchaseFromJson(Map<String, dynamic> json) => Purchase(
           .toList(),
       price: (json['price'] as num).toDouble(),
       timestamp: json['timestamp'] as String,
+      userId: json['userId'] as String,
     );
 
 Map<String, dynamic> _$PurchaseToJson(Purchase instance) => <String, dynamic>{
@@ -20,4 +21,5 @@ Map<String, dynamic> _$PurchaseToJson(Purchase instance) => <String, dynamic>{
       'price': instance.price,
       'timestamp': instance.timestamp,
       'productsId': instance.productsId,
+      'userId': instance.userId,
     };

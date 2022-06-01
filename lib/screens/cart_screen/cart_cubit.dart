@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:licenta_georgebardas/models/product.dart';
@@ -47,6 +48,7 @@ class CartCubit extends Cubit<CartState> {
         productsId: state.products.map((product) => product.id!).toList(),
         price: state.total,
         timestamp: DateTime.now().millisecondsSinceEpoch.toString(),
+        userId: FirebaseAuth.instance.currentUser!.uid,
       ),
     );
 

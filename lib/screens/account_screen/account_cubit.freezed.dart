@@ -18,10 +18,12 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AccountStateTearOff {
   const _$AccountStateTearOff();
 
-  _AccountState call({bool isLoading = false, UserModel? user = null}) {
+  _AccountState call(
+      {bool isLoading = false, UserModel? user = null, String? userAvatar}) {
     return _AccountState(
       isLoading: isLoading,
       user: user,
+      userAvatar: userAvatar,
     );
   }
 }
@@ -33,6 +35,7 @@ const $AccountState = _$AccountStateTearOff();
 mixin _$AccountState {
   bool get isLoading => throw _privateConstructorUsedError;
   UserModel? get user => throw _privateConstructorUsedError;
+  String? get userAvatar => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AccountStateCopyWith<AccountState> get copyWith =>
@@ -44,7 +47,7 @@ abstract class $AccountStateCopyWith<$Res> {
   factory $AccountStateCopyWith(
           AccountState value, $Res Function(AccountState) then) =
       _$AccountStateCopyWithImpl<$Res>;
-  $Res call({bool isLoading, UserModel? user});
+  $Res call({bool isLoading, UserModel? user, String? userAvatar});
 }
 
 /// @nodoc
@@ -59,6 +62,7 @@ class _$AccountStateCopyWithImpl<$Res> implements $AccountStateCopyWith<$Res> {
   $Res call({
     Object? isLoading = freezed,
     Object? user = freezed,
+    Object? userAvatar = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -69,6 +73,10 @@ class _$AccountStateCopyWithImpl<$Res> implements $AccountStateCopyWith<$Res> {
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserModel?,
+      userAvatar: userAvatar == freezed
+          ? _value.userAvatar
+          : userAvatar // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -80,7 +88,7 @@ abstract class _$AccountStateCopyWith<$Res>
           _AccountState value, $Res Function(_AccountState) then) =
       __$AccountStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLoading, UserModel? user});
+  $Res call({bool isLoading, UserModel? user, String? userAvatar});
 }
 
 /// @nodoc
@@ -97,6 +105,7 @@ class __$AccountStateCopyWithImpl<$Res> extends _$AccountStateCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = freezed,
     Object? user = freezed,
+    Object? userAvatar = freezed,
   }) {
     return _then(_AccountState(
       isLoading: isLoading == freezed
@@ -107,6 +116,10 @@ class __$AccountStateCopyWithImpl<$Res> extends _$AccountStateCopyWithImpl<$Res>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserModel?,
+      userAvatar: userAvatar == freezed
+          ? _value.userAvatar
+          : userAvatar // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -114,7 +127,8 @@ class __$AccountStateCopyWithImpl<$Res> extends _$AccountStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AccountState implements _AccountState {
-  const _$_AccountState({this.isLoading = false, this.user = null});
+  const _$_AccountState(
+      {this.isLoading = false, this.user = null, this.userAvatar});
 
   @JsonKey()
   @override
@@ -122,10 +136,12 @@ class _$_AccountState implements _AccountState {
   @JsonKey()
   @override
   final UserModel? user;
+  @override
+  final String? userAvatar;
 
   @override
   String toString() {
-    return 'AccountState(isLoading: $isLoading, user: $user)';
+    return 'AccountState(isLoading: $isLoading, user: $user, userAvatar: $userAvatar)';
   }
 
   @override
@@ -134,14 +150,17 @@ class _$_AccountState implements _AccountState {
         (other.runtimeType == runtimeType &&
             other is _AccountState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality().equals(other.user, user));
+            const DeepCollectionEquality().equals(other.user, user) &&
+            const DeepCollectionEquality()
+                .equals(other.userAvatar, userAvatar));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(user));
+      const DeepCollectionEquality().hash(user),
+      const DeepCollectionEquality().hash(userAvatar));
 
   @JsonKey(ignore: true)
   @override
@@ -150,13 +169,15 @@ class _$_AccountState implements _AccountState {
 }
 
 abstract class _AccountState implements AccountState {
-  const factory _AccountState({bool isLoading, UserModel? user}) =
-      _$_AccountState;
+  const factory _AccountState(
+      {bool isLoading, UserModel? user, String? userAvatar}) = _$_AccountState;
 
   @override
   bool get isLoading;
   @override
   UserModel? get user;
+  @override
+  String? get userAvatar;
   @override
   @JsonKey(ignore: true)
   _$AccountStateCopyWith<_AccountState> get copyWith =>

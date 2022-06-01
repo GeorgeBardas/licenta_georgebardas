@@ -10,14 +10,16 @@ class Product {
   final String? category;
   final double? price;
   final String? currency;
+  final String? description;
 
   Product({
     this.id,
-    required this.image,
+    this.image,
     required this.title,
     required this.category,
     required this.price,
-    required this.currency,
+    this.currency = "RON",
+    required this.description,
   });
 
   factory Product.fromJson(Map<String, dynamic> json) =>

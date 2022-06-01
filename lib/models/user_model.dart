@@ -10,12 +10,14 @@ class UserModel {
   final String email;
   final bool isAdmin;
   final List<String> favProductsIds;
+  final String birthday;
 
   UserModel({
     required this.id,
     required this.firstName,
     required this.lastName,
     required this.email,
+    required this.birthday,
     this.isAdmin = false,
     this.favProductsIds = const [],
   });

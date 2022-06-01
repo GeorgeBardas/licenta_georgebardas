@@ -8,13 +8,14 @@ class Purchase {
   final double price;
   final String timestamp;
   final List<String> productsId;
+  final String userId;
 
-  Purchase({
-    this.id = "",
-    required this.productsId,
-    required this.price,
-    required this.timestamp,
-  });
+  Purchase(
+      {this.id = "",
+      required this.productsId,
+      required this.price,
+      required this.timestamp,
+      required this.userId});
 
   factory Purchase.fromJson(Map<String, dynamic> json) =>
       _$PurchaseFromJson(json);

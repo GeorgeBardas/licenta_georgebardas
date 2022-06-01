@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Avatar</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Avatar</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Avatar</string>
 	<key>CLIENT_ID</key>
 	<string>349701023452-i94bd6unm58msvernilcadiqur8hl6kk.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
@@ -19,15 +25,15 @@
 	<key>STORAGE_BUCKET</key>
 	<string>licenta-georgebardas.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:349701023452:ios:d5a5689c05f829fb4af619</string>
 </dict>

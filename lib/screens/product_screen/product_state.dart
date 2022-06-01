@@ -6,6 +6,6 @@ class ProductState with _$ProductState {
     @Default(false) bool isLoading,
     @Default(false) bool isFavorite,
     @Default(false) bool isInCart,
-    @Default("") String imageUrl,
+    @Default(1) int quantity,
   }) = _ProductState;
 }

@@ -13,29 +13,44 @@ class WelcomeScreen extends StatelessWidget {
     if (FirebaseAuth.instance.currentUser != null)
       appRouter.replace(HomeScreenRoute());
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(40.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("Welcome"),
-                Column(
-                  children: [
-                    PrimaryButton(
-                      text: AppLocalizations.of(context)?.login ?? "",
-                      onPressed: () => appRouter.push(const LoginScreenRoute()),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/home_background.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SafeArea(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(40.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Welcome",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
                     ),
-                    SizedBox(height: 10),
-                    PrimaryButton(
-                      text: AppLocalizations.of(context)?.register ?? "",
-                      onPressed: () =>
-                          appRouter.push(const RegisterScreenRoute()),
-                    ),
-                  ],
-                )
-              ],
+                  ),
+                  Column(
+                    children: [
+                      PrimaryButton(
+                        text: AppLocalizations.of(context)?.login ?? "",
+                        onPressed: () =>
+                            appRouter.push(const LoginScreenRoute()),
+                      ),
+                      SizedBox(height: 10),
+                      PrimaryButton(
+                        text: AppLocalizations.of(context)?.register ?? "",
+                        onPressed: () =>
+                            appRouter.push(const RegisterScreenRoute()),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ),

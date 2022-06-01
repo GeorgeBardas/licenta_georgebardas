@@ -7,6 +7,7 @@ import 'package:licenta_georgebardas/screens/account_screen/account_screen.dart'
 import 'package:licenta_georgebardas/screens/cart_screen/cart_screen.dart';
 import 'package:licenta_georgebardas/screens/favorites_screen/favorites_screen.dart';
 import 'package:licenta_georgebardas/screens/home_screen/home_cubit.dart';
+import 'package:licenta_georgebardas/screens/home_tab_screen/home_tab_screen.dart';
 import 'package:licenta_georgebardas/screens/products_screen/products_screen.dart';
 import 'package:licenta_georgebardas/utils/assets.dart';
 
@@ -103,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   physics: NeverScrollableScrollPhysics(),
                   controller: _tabController,
                   children: [
-                    WidgetTest(),
+                    HomeTabScreen(),
                     ProductsScreen(),
                     CartScreen(),
                     FavoritesScreen(),

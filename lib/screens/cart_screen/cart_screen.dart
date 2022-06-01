@@ -5,7 +5,7 @@ import 'package:licenta_georgebardas/screens/cart_screen/cart_cubit.dart';
 import 'package:licenta_georgebardas/utils/colors.dart';
 import 'package:licenta_georgebardas/utils/dialog_helpers.dart';
 import 'package:licenta_georgebardas/widgets/primary_button.dart';
-import 'package:licenta_georgebardas/widgets/wrap_product_item.dart';
+import 'package:licenta_georgebardas/widgets/wrap_product_item/wrap_product_item.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);
@@ -17,20 +17,23 @@ class CartScreen extends StatelessWidget {
       child: BlocBuilder<CartCubit, CartState>(
         builder: (context, state) {
           return Scaffold(
+            appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              title: Text(
+                AppLocalizations.of(context)?.cart ?? "",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.black,
+                ),
+              ),
+              foregroundColor: Colors.black,
+            ),
             body: RefreshIndicator(
               onRefresh: () => context.read<CartCubit>().getProducts(),
               child: Column(
                 children: [
-                  Center(
-                    child: Text(
-                      AppLocalizations.of(context)?.cart ?? "",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.black,
-                      ),
-                    ),
-                  ),
                   Expanded(
                     child: state.isLoading
                         ? Center(child: CircularProgressIndicator())
@@ -48,6 +51,7 @@ class CartScreen extends StatelessWidget {
                                 gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2,
+                                  childAspectRatio: 0.65,
                                 ),
                                 itemCount: state.products.length,
                                 itemBuilder: (context, index) {

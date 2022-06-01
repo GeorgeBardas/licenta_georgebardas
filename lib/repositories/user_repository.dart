@@ -30,4 +30,31 @@ class UserRepository {
         .get();
     return userDocSnapshot.data();
   }
+
+  Future<void> saveUserDeliveryAddress(String newAddress) async {
+    List<dynamic> savedAddresses = await getDeliveryAddresses();
+    savedAddresses.add(newAddress);
+    await FirebaseFirestore.instance
+        .collection(DATABASE_USERS_KEY)
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .update({DATABASE_ADDRESSES_KEY: savedAddresses});
+  }
+
+  Future<List<String>> getDeliveryAddresses() async {
+    dynamic list = (await FirebaseFirestore.instance
+            .collection(DATABASE_USERS_KEY)
+            .doc(FirebaseAuth.instance.currentUser!.uid)
+            .get())
+        .get(DATABASE_ADDRESSES_KEY);
+    return List<String>.from(list.map((e) => e.toString())).toList();
+  }
+
+  Future<void> deleteDeliveryAddress(String address) async {
+    List<dynamic> savedAddresses = await getDeliveryAddresses();
+    savedAddresses.remove(address);
+    await FirebaseFirestore.instance
+        .collection(DATABASE_USERS_KEY)
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .update({DATABASE_ADDRESSES_KEY: savedAddresses});
+  }
 }

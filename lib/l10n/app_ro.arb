@@ -5,6 +5,8 @@
   "favorites": "Favorite",
   "account_screen": "Cont",
 
+  "search": "Cautare",
+
   "login": "Autentificare",
   "register": "Inregistrare",
 
@@ -18,6 +20,7 @@
 
   "first_name": "Prenume",
   "last_name": "Nume",
+  "birthday": "Data nasterii",
   "confirm_password": "Confirmare parola",
   "password_error_short": "Parola trebuie sa contina minim 6 caractere",
   "confirm_password_error": "Parolele trebuie sa fie identice",
@@ -33,6 +36,7 @@
   "my_orders": "Comenzile mele",
   "account_details": "Detalii cont",
   "admin": "Admin",
+  "delivery_addresses": "Adrese de livrare",
   "log_out": "Delogheaza-te",
 
   "add_category": "Adauga categorie",
@@ -41,7 +45,16 @@
   "add": "Adauga",
 
   "add_product": "Adauga produs",
+  "add_product_image": "Imagine produs",
+  "add_product_name": "Titlu produs",
+  "add_product_price": "Pret",
+  "add_product_description": "Descriere",
+  "add_product_select_category": "Selecteaza categorie",
 
   "add_to_cart": "Adauga in cos",
-  "remove_from_cart": "Scoate din cos"
+  "remove_from_cart": "Scoate din cos",
+  "add_delivery_address": "Adaugare adresa de livrare",
+  "add_delivery_county": "Judet",
+  "add_delivery_city": "Localitate",
+  "add_delivery_details": "Adresa"
 }

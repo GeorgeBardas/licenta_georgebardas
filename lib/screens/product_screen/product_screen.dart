@@ -32,14 +32,14 @@ class ProductScreen extends StatelessWidget {
                       children: [
                         Container(
                           height: MediaQuery.of(context).size.height * 0.25,
-                          child: state.imageUrl.isEmpty
+                          child: product.image?.isEmpty == true
                               ? Center(
                                   child: Icon(
                                     Icons.photo_camera,
                                     size: 60,
                                   ),
                                 )
-                              : Center(child: Image.network(state.imageUrl)),
+                              : Center(child: Image.network(product.image!)),
                         ),
                         Padding(
                           padding: EdgeInsets.all(25),
@@ -49,14 +49,18 @@ class ProductScreen extends StatelessWidget {
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    product.title ?? "",
-                                    style: TextStyle(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold,
+                                  Container(
+                                    child: Text(
+                                      product.title ?? "",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
+                                    width:
+                                        MediaQuery.of(context).size.width - 100,
                                   ),
                                   GestureDetector(
                                     onTap: context
@@ -72,6 +76,7 @@ class ProductScreen extends StatelessWidget {
                                   )
                                 ],
                               ),
+                              SizedBox(height: 5),
                               Text(
                                 product.category ?? "",
                                 style: TextStyle(
@@ -88,6 +93,10 @@ class ProductScreen extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
+                              SizedBox(height: 20),
+                              Text(
+                                product.description ?? "",
+                              ),
                             ],
                           ),
                         ),
@@ -96,12 +105,45 @@ class ProductScreen extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(25),
-                    child: PrimaryButton(
-                      text: state.isInCart
-                          ? AppLocalizations.of(context)?.remove_from_cart ?? ""
-                          : AppLocalizations.of(context)?.add_to_cart ?? "",
-                      onPressed: () =>
-                          context.read<ProductCubit>().toggleCart(),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: PrimaryButton(
+                            text: state.isInCart
+                                ? AppLocalizations.of(context)
+                                        ?.remove_from_cart ??
+                                    ""
+                                : AppLocalizations.of(context)?.add_to_cart ??
+                                    "",
+                            onPressed: () =>
+                                context.read<ProductCubit>().toggleCart(),
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        FloatingActionButton(
+                          child: Icon(Icons.add),
+                          onPressed: () =>
+                              context.read<ProductCubit>().setQuantity(
+                                    state.quantity + 1,
+                                  ),
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          state.quantity.toString(),
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        FloatingActionButton(
+                          child: Icon(Icons.remove),
+                          onPressed: () =>
+                              context.read<ProductCubit>().setQuantity(
+                                    state.quantity - 1,
+                                  ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

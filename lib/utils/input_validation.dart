@@ -21,6 +21,9 @@ class InputValidation {
   }
 
   bool validateCategory(String category) {
-    return category.length >= 3;
+    return category.length >= 3 &&
+        RegExp(r'^[a-zA-Z0-9.!@&$ -]*$').hasMatch(category);
   }
+
+  bool validatePrice(String text) => RegExp(r'^[0-9.]*$').hasMatch(text);
 }

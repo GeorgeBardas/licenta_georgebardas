@@ -13,5 +13,6 @@ class RegisterState with _$RegisterState {
     @Default("") String email,
     @Default("") String password,
     @Default("") String confirmPassword,
+    DateTime? birthDay,
   }) = _RegisterState;
 }
