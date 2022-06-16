@@ -39,4 +39,23 @@ class PurchaseRepository {
             ));
     return list;
   }
+
+  Future<List<Purchase>> getOrders() async {
+    final List<Purchase> list = [];
+    await FirebaseFirestore.instance
+        .collection(DATABASE_PURCHASES_KEY)
+        .withConverter<Purchase>(
+          fromFirestore: (snapshot, _) {
+            return Purchase.fromJson(snapshot.data()!);
+          },
+          toFirestore: (data, _) => data.toJson(),
+        )
+        .get()
+        .then((value) => value.docs.forEach(
+              (element) {
+                list.add(element.data());
+              },
+            ));
+    return list;
+  }
 }

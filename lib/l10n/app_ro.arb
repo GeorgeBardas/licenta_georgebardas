@@ -56,5 +56,8 @@
   "add_delivery_address": "Adaugare adresa de livrare",
   "add_delivery_county": "Judet",
   "add_delivery_city": "Localitate",
-  "add_delivery_details": "Adresa"
+  "add_delivery_details": "Adresa",
+
+  "admin_orders": "Comenzi",
+  "admin_statistics": "Statistici"
 }

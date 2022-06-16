@@ -50,6 +50,27 @@ class AdminScreen extends StatelessWidget {
                     onTap: () =>
                         appRouter.push(const AdminProductsScreenRoute()),
                   ),
+                  Divider(
+                    indent: 30,
+                    endIndent: 30,
+                    thickness: 0.7,
+                  ),
+                  AccountScreenItemWidget(
+                    icon: AppAssets.iconOrders,
+                    title: AppLocalizations.of(context)?.admin_orders ?? "",
+                    onTap: () => appRouter.push(const AdminOrdersScreenRoute()),
+                  ),
+                  Divider(
+                    indent: 30,
+                    endIndent: 30,
+                    thickness: 0.7,
+                  ),
+                  AccountScreenItemWidget(
+                    icon: AppAssets.iconOrders,
+                    title: AppLocalizations.of(context)?.admin_statistics ?? "",
+                    onTap: () =>
+                        appRouter.push(const AdminStatisticsScreenRoute()),
+                  ),
                 ],
               ),
             ))

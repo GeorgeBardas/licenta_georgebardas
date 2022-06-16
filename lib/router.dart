@@ -4,8 +4,10 @@ import 'package:licenta_georgebardas/screens/admin_screen/admin_add_category_scr
 import 'package:licenta_georgebardas/screens/admin_screen/admin_add_product_screen/admin_add_product_screen.dart';
 import 'package:licenta_georgebardas/screens/admin_screen/admin_add_product_screen/admin_product_select_category/admin_product_select_category_screen.dart';
 import 'package:licenta_georgebardas/screens/admin_screen/admin_categories_screen/admin_categories_screen.dart';
+import 'package:licenta_georgebardas/screens/admin_screen/admin_orders_screen/admin_orders_screen.dart';
 import 'package:licenta_georgebardas/screens/admin_screen/admin_products_screen/admin_products_screen.dart';
 import 'package:licenta_georgebardas/screens/admin_screen/admin_screen.dart';
+import 'package:licenta_georgebardas/screens/admin_screen/admin_statistics_screen/admin_statistics_screen.dart';
 import 'package:licenta_georgebardas/screens/category_products_screen/category_products_screen.dart';
 import 'package:licenta_georgebardas/screens/delivery_addresses_screen/add_delivery_address_screen/add_delivery_address_screen.dart';
 import 'package:licenta_georgebardas/screens/delivery_addresses_screen/delivery_addresses_screen.dart';
@@ -81,6 +83,14 @@ import 'package:licenta_georgebardas/screens/welcome_screen.dart';
     ),
     CustomRoute(
       page: AdminProductSelectCategoryScreen,
+      transitionsBuilder: TransitionsBuilders.slideLeft,
+    ),
+    CustomRoute(
+      page: AdminOrdersScreen,
+      transitionsBuilder: TransitionsBuilders.slideLeft,
+    ),
+    CustomRoute(
+      page: AdminStatisticsScreen,
       transitionsBuilder: TransitionsBuilders.slideLeft,
     ),
   ],
